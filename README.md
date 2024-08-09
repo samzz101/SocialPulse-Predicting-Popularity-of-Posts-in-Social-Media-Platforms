@@ -46,8 +46,7 @@ First, specific noise and year-related tags were removed. Then, a set of additio
 Categorical features, specifically 'Category', were transformed into a numerical format using one-hot encoding. The OneHotEncoder from scikit-learn was employed to convert the 'Category' column into a binary matrix. Additionally, the 'SubCategory' and 'Concept' columns underwent tokenization. This process converts textual data into numerical sequences, which are then padded to a maximum length of 1.
 ### Proposed Model
 In this architecture, the image embeddings, text embeddings, encoded categorical data, and numerical data are concatenated and passed through a sequence of dense layers, each equipped with batch normalization and dropout for regularization. The model comprises four dense layers with ‘ReLU’ activation functions, which introduce non-linearity to the network. The final output layer, designed for regression tasks, utilizes a ‘linear’ activation function. The entire model is compiled using the Adam optimizer. The total number of trainable parameters is close to 1 million in this architecture. 
-
-<img width="947" alt="Screenshot 2024-07-22 at 1 55 07 PM" src="https://github.com/user-attachments/assets/d8a8c987-a020-4284-8386-decfaef3ea9f"> 
+<img width="962" alt="Screenshot 2024-08-09 at 11 39 54 AM" src="https://github.com/user-attachments/assets/5fe8c56f-b443-406f-8fc5-2b1c8ed3edfc">
 
 ## Experimental Setup - Framework 1
 ### Predicting with the Social Network Effect (SNE):
@@ -78,8 +77,7 @@ The model employed a robust approach to handle categorical features, a standout 
 The model did not require manual label encoding of categorical features. It operates on a different leaf-wise growth strategy compared to the level-wise growth of CatBoost and XGBoost, making it faster and more efficient, particularly on large datasets. LightGBM's framework was set up with 64 leaves and a maximum depth of 8, balancing the model's complexity and computational efficiency. 
 #### XGBoost
 XGBoost, on the other hand, required pre-encoded categorical features. Similar to CatBoost, it used a maximum depth of 8 in its tree structure. It's highly customizable, allowing for in-depth parameter tuning, but this also means it might require more manual configuration compared to CatBoost.
-
-<img width="895" alt="Screenshot 2024-07-22 at 2 19 20 PM" src="https://github.com/user-attachments/assets/615ae4f8-e022-4e48-bc6f-b07aa2130f58">
+<img width="889" alt="Screenshot 2024-08-09 at 11 40 06 AM" src="https://github.com/user-attachments/assets/3e0719ac-de8e-4fcd-970d-6a0e04c69c2b">
 
 ## Experimental Setup - Framework 2
 ### CatBoost
@@ -91,8 +89,7 @@ The aim was regression with MAE as the metric. It uses a learning rate of 0.03, 
 
 ## Combined Results for Frameworks 1 & 2
 The performance of different models was evaluated using Mean Absolute Error (MAE) and Spearman's Rho (SRC). The CatBoost model achieved an MAE of 0.5898 and an SRC of 0.9226. LightGBM outperformed the other models with an MAE of 0.5451 and an SRC of 0.9259. The XGBoost model recorded an MAE of 0.5616 and an SRC of 0.9222. In comparison, the Multimodal Deep Learning (DL) model had a higher MAE of 1.25 and a lower SRC of 0.721, indicating less accurate predictions than the tree-based models.
-
-<img width="737" alt="Screenshot 2024-08-02 at 11 22 09 AM" src="https://github.com/user-attachments/assets/dada6c93-56d5-491d-b11f-396ccb60952c">
+<img width="743" alt="Screenshot 2024-08-09 at 11 40 18 AM" src="https://github.com/user-attachments/assets/2a00de6b-c60b-481e-ae62-b52e9a02cd57">
 
 ## Conclusion
 The results of this study confirm that visibility in social networks significantly impacts the accuracy of post popularity prediction models. Our findings highlight the necessity of engineering more social network features to enhance model performance further. Through sophisticated feature engineering using NLP and ML techniques, we achieved a top rank on the leaderboard with Framework-2. Meanwhile, our Deep Learning Framework-1 secured a position in the top 10.
